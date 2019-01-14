@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!-- index.html -->
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/program-04.css">
+		<title>
+			ITSE 2302 Program-04: Jesse Strait
+		</title>
+	</head>
+	<body onload="timeFunction(); checkCookies();">
+		<hr>
+		<div id="title">
+			<h1>ITSE 2302 - Program 04</h1>
+			<h2>Jesse Strait</h2>
+			<hr>
+		</div>
+		<div id="number1">
+			<h2>#1 Date Time Display.</h2>
+			<h2 id="dateDisplay"></h2>
+			<hr>
+		</div>
+		<div id="number2">
+			<h2>#2 Change color to above Date and Time.</h2>
+			
+			<p>Use Select list to change color as well..</p>
+			<select onchange="changeColorSelect()" id="selectColorChange">
+			  <option value=""></option>
+			  <option value="green">Green</option>
+			  <option value="blue">Blue</option>
+			  <option value="yellow">Yellow</option>
+			  <option value="red">Red</option>
+			</select>
+			<hr>
+		</div>
+		<div id="number3">
+			<h2>#3 Check if cookies are enabled.</h2>
+			
+			<p id="crookies"></p>
+			<hr>
+		</div>
+		<div id="number4">
+			<h3>#4 Click on the button to generate new Random Number using Closure, function inside function</h3>
+			<button onclick="counterRandom()">Generate</button>
+			<p id="wierdStuff"></p>
+			<hr>
+		</div>
+		<div id="number5">
+			<h3>#5 DOM methods with paragraphs / CLICK buttons</h3>
+			<p class="loremClass">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+			<p class="loremClass">Sed lobortis in augue accumsan viverra. Fusce viverra porta finibus. Quisque sodales dignissim fermentum. Ut quis aliquam tellus, id mattis urna. Donec et nibh dolor. Nulla vestibulum felis eu vestibulum vestibulum. Vivamus quis lacus at neque iaculis venenatis id iaculis mi.</p>
+			<p class="loremClass">Aliquam vel quam vitae eros sollicitudin tincidunt id eget ligula. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec luctus justo in lacus mattis, id imperdiet felis lobortis. Fusce pretium sagittis ligula, vitae aliquet enim tempor vitae. Suspendisse auctor nibh sit amet odio maximus, ultricies vestibulum ex mattis. Donec at nisi magna. Nunc malesuada, magna et tempor ultrices, turpis libero luctus odio, vitae vehicula mi augue quis ante. </p>
+			<p class="loremClass">Vivamus placerat velit nisl. Aenean tempus leo eget urna posuere, at pharetra magna rhoncus. Nulla eu varius diam, in viverra sapien. Sed vulputate massa et odio dignissim, vitae gravida tellus lobortis. Etiam dignissim est vel justo condimentum tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere nisi eu nulla placerat ultricies.</p>
+			<p class="loremClass">In tristique elit at dolor placerat sagittis. Nullam vitae diam eleifend tellus interdum lobortis ut nec elit. Nulla vel rutrum turpis, ut consequat mauris. Vestibulum malesuada ligula in nunc convallis, at gravida diam malesuada. Mauris pretium metus et eros condimentum, nec placerat libero bibendum. Proin ullamcorper pharetra neque, et pharetra nisl ultrices eget. Donec ultricies pharetra nulla, vitae posuere mauris scelerisque id. Cras quis malesuada elit. </p>
+			
+			<button onclick="hideLorem()">Toggle Display by Class</button>
+			<hr>
+		</div>
+		<div id="number6">
+			<h3>#6 Change Font family and size of above class. </h3>
+			<button onclick="changeLorem()">Change Font by Class</button>
+			<hr>
+		</div>
+		<div id="number7">
+			<h3>#7 Display all innerHTML values. </h3>
+			<button onclick="displayValues()">Display VALUES</button>
+			<p id="wierdSt"></p>
+			<hr>
+		</div>
+		<div id="number8">
+			<h3>#8 Select / Toggle image display. </h3>
+			<table id="imgTbl">
+			  <tr>
+			    <td><img id="imageShow1" src="images/default.PNG"></td>
+			    <td><img id="imageShow2" src="images/default.PNG"></td> 
+			    <td><img id="imageShow3" src="images/default.PNG"></td>
+			  </tr>
+			  <tr>
+			    <td><img id="imageShow4" src="images/default.PNG"></td>
+			    <td><img id="imageShow5" src="images/default.PNG"></td> 
+			    <td><img id="imageShow6" src="images/default.PNG"></td>
+			  </tr>
+			</table>
+			<select id="imageChange" onchange="showHideImage()">
+			  <option></option>
+			  <option value="images/image1.PNG" id="image1">image1</option>
+			  <option value="images/image2.PNG" id="image2">image2</option>
+			  <option value="images/image3.PNG" id="image3">image3</option>
+			  <option value="images/image4.PNG" id="image4">image4</option>
+			  <option value="images/image5.PNG" id="image5">image5</option>
+			  <option value="images/image6.PNG" id="image6">image6</option>
+			</select>
+			<hr>
+		</div>
+		<div id="number9">
+			<h3>#9. Image slideshow using Web Workers.</h3>
+			<div id="imageSlider">
+			<img id="imageSlideAuto" src="images/default.PNG">
+			</div>
+			<br>
+			<button onclick="startWorker()">Start Worker</button> 
+			<button onclick="stopWorker()">Stop Worker</button>
+
+			<script>
+			var w;
+
+			function startWorker() {
+			    if(typeof(Worker) !== "undefined") {
+			        if(typeof(w) == "undefined") {
+			            w = new Worker("http://lineofcode.com/itse2302001/itse2302001003/program-04/scripts/webWorker.js");
+			        }
+			        w.onmessage = function(event) {
+
+			            document.getElementById("imageSlideAuto").src = event.data;
+			            console.log(event.data);
+			        };
+			    } else {
+			        document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+			    }
+			}
+
+			function stopWorker() { 
+			    w.terminate();
+			    w = undefined;
+			}
+			</script>
+			<hr>
+		</div>
+		<div id="number10">
+			<h3>#10 Toggle visibility of above. </h3>
+			
+			<button id="buttonMouse" onclick="toggleVis()">Toggle visibility</button>
+			
+			<hr>
+		</div>
+		<div id="number11">
+			<h3>#11 Mouse over event listener / above button</h3>
+			<hr>
+		</div>
+		<div id="number12">
+			<h3>#12 Click Link Below</h3>
+			<a href="requirement-11.html">Requirement #11</a>
+			<hr>
+		</div>
+		<div id="number13">
+			<h3>#13 Create Paragraph Element</h3>
+			<div id="myDIV"></div>
+			<button onclick="createP()">CREATE</button>
+			<hr>
+		</div>
+		<div id="number14">
+			<h3>#14 Mouse over DIV(blue box) to Display how many paragraphs on page.</h3>
+			<div id="myDIV2">
+				<p id="pElements"></p>
+			</div>
+			
+			<hr>
+		</div>
+
+	<script src="scripts/program-04.js"></script>
+	</body>
+</html>

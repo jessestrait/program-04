@@ -1,0 +1,81 @@
+#title {
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+#number1, #number2, #number3, #number4, #number5, #number6, #number7, #number8, #number9, #number10, #number11, #number12, #number13, #number14, #number15{
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.loremClass {
+	font-family: "Times New Roman", Times, serif;
+	display: block;
+	text-align: left;
+	margin-right: 50px;
+    margin-left: 100px;
+    text-indent: 30px;
+}
+
+.loremHide {
+	display: none;
+}
+
+.loremChange {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.75em;
+}
+
+table, th, td, tr {
+	width: 150px;
+    border: 1px solid black;
+    height: 50px;
+    text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.mySlides {display:none;}
+
+#imageSlider {
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+#buttonMouse {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+body {
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+#myDIV2 {
+    height: 35px;
+    width: 50%;
+    background-color: powderblue;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+#pElements {
+	
+	margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;.
+    font-style: italic;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
